@@ -1,7 +1,7 @@
-# Ansible LemonLDAP::NG role
+# Apache-saml-sp role
 
-This is the ansible mellon role. It can be used to set up the plugin mod_auth_mellon on a server.  
-This plugin allows you use an Identity Provider to connect to your application. 
+This is the ansible mellon role. It can be used to set up the plugin mod_auth_mellon on an Apache2 server.  
+This plugin allows you use to connect your application to a SAML2 Identity Provider. 
 
 ## Installation
 
@@ -26,7 +26,6 @@ cd .ansible/roles
 git clone https://github.com/Wardaar/apache-mellon-sp
 cd ..
 mv roles/apache-saml-sp/playbook.yaml .
-nano playbook.yaml
 ```
 
 Generate a self-signed SSL certificate if you don't have one from a provider
@@ -56,6 +55,10 @@ ansible-playbook playbook.yaml
 ```
 
 ## Configuration: Role Variables
+
+```
+nano playbook.yaml
+```
 
 * `app_fqdn`, the fqdn of your application, defaults to app.changeme.com.
 * `idp_metadata`, path to the extracted metadata of your Identity Provider.
