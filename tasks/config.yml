@@ -29,6 +29,9 @@
 - name: Replace FQDN
   command: "sed -i -e 's/fqdn/'{{ app_fqdn  }}'/g' /etc/apache2/sites-available/app.conf"
 
+- name: Create protected directory
+  command: "mkdir -p /var/www/html/protected"
+
 - name: Enable apache config
   command: "a2ensite app.conf"
   register: res_a2ensite
