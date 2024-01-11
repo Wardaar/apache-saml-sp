@@ -1,6 +1,6 @@
 # Apache-saml-sp role
 
-This is the ansible mellon role. It can be used to set up the plugin mod_auth_mellon on an Apache2 server.  
+This is the ansible apache-saml-sp role. It can be used to set up the plugin mod_auth_mellon on an Apache2 server.  
 This plugin allows you use to connect your application to a SAML2 Identity Provider. 
 
 ## Installation
