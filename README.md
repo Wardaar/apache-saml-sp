@@ -67,6 +67,20 @@ nano playbook.yaml
 
 ## Playbook Example
 
+```
+- name: Install SAML SP
+  hosts: localhost
+  become: yes
+  roles:
+    - role: apache-saml-sp
+  vars:
+    - app_fqdn: "app.example.com" # app.cr14
+    - idp_metadata: "/home/user/idp_metadata.xml" #path to IDP metadata
+    - cert_path: "/home/user/app.crt" #path to SSL certificate
+    - key_path: "/home/user/app.key" #path to SSL key
+
+```
+
 ## License 
 
 MIT
