@@ -1,0 +1,50 @@
+*---
+- name: Create mellon directory
+  command: "mkdir -p /etc/apache2/mellon"
+
+- name: Use mellon metadata creation script
+  command: "chdir=/etc/apache2/mellon /usr/sbin/mellon_create_metadata https://{{ app_fqdn }} https://{{ app_fqdn }}/mellon"
+
+- name: Rename mellon files
+  command: "chdir=/etc/apache2/mellon mv {{ item }}"
+  with_items:
+    - "https_{{ app_fqdn }}.cert mellon.crt"
+    - "https_{{ app_fqdn }}.key mellon.key"
+    - "https_{{ app_fqdn }}.xml mellon_metadata.xml"
+
+- name: Configure mellon
+  command: "cp roles/apache-saml-sp/files/mellon.conf /etc/apache2/conf-available/mellon.conf"
+
+- name: Copy IDP metadata
+  command: "cp '{{ idp_metadata }}' /etc/apache2/mellon/idp_metadata.xml"
+
+- name: Move SSL certificate
+  command: "cp '{{ cert_path }}' /etc/apache2/mellon/app.cert"
+- name: Move SSL key
+  command: "cp '{{ key_path }}' /etc/apache2/mellon/app.key"
+
+- name: Create Apache Virtual Host
+  command: "cp roles/apache-saml-sp/files/apachevhost.conf /etc/apache2/sites-available/app.conf"
+
+- name: Replace FQDN
+  command: "sed -i -e 's/fqdn/'{{ app_fqdn  }}'/g' /etc/apache2/sites-available/app.conf"
+
+- name: Enable apache config
+  command: "a2ensite app.conf"
+  register: res_a2ensite
+  changed_when: "'already enabled' not in res_a2ensite.stdout"
+
+- name: Enable ssl module
+  command: "a2enmod ssl"
+  register: res_a2enmod
+  changed_when: "'already enabled' not in res_a2enmod.stdout"
+
+- name: Enable auth_mellon configuration
+  command: "a2enconf mellon.conf"
+  register: res_a2enconf
+  changed_when: "'already enabled' not in res_a2enconf.stdout"
+
+- name: Reload apache2
+  ansible.builtin.service:
+    name: apache2
+    state: restarted

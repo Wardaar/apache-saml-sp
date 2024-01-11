@@ -1,0 +1,10 @@
+- name: Install SAML SP
+  hosts: localhost
+  become: yes
+  roles:
+    - role: apache-saml-sp
+  vars:
+    - app_fqdn: "[fqdn]" # app.cr14
+    - idp_metadata: "[path]" #path to IDP metadata
+    - cert_path: "[path]" #path to SSL certificate
+    - key_path: "[path]" #path to SSL key
