@@ -23,7 +23,7 @@ Get ansible profile
 
 ```
 cd .ansible/roles
-git clone https://github.com/Wardaar/apache-mellon-sp
+git clone https://github.com/Wardaar/apache-saml-sp.git
 cd ..
 mv roles/apache-saml-sp/playbook.yaml .
 ```
@@ -52,6 +52,11 @@ Run playbook
 
 ```
 ansible-playbook playbook.yaml
+```
+
+Send SP metadata to your Identity Provider to register as a SP
+```
+/etc/apache2/mellon/mellon_metadata.xml
 ```
 
 ## Configuration: Role Variables
