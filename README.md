@@ -104,9 +104,6 @@ nano playbook.yaml
 
 MIT
 
-## Author Information
+## Authors Information
 
-Benjamin GUILLOUZO
-Tanguy PASCALE
-Benjamin REICHLING
-Valentin THIRION
+See [AUTHORS](AUTHORS)
