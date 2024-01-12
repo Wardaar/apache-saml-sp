@@ -28,7 +28,7 @@ cd ..
 mv roles/apache-saml-sp/playbook.yaml .
 ```
 
-## Installation
+## SSL Certificate
 
 Generate a self-signed SSL certificate if you don't have one from a provider
 
@@ -72,7 +72,7 @@ nano playbook.yaml
 * `app_fqdn`, the fqdn of your application, defaults to app.changeme.com.
 * `idp_metadata`, path to the extracted metadata of your Identity Provider.
 * `cert_path`, path to the application SSL certificate.
-* `key_path`, path to the application SSL key
+* `key_path`, path to the application SSL key.
 
 ## Playbook Example
 
