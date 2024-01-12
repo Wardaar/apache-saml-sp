@@ -1,4 +1,3 @@
-*---
 - name: Create mellon directory
   command: "mkdir -p /etc/apache2/mellon"
 
@@ -8,7 +7,7 @@
 - name: Rename mellon files
   command: "chdir=/etc/apache2/mellon mv {{ item }}"
   with_items:
-    - "https_{{ app_fqdn }}.cert mellon.crt"
+    - "https_{{ app_fqdn }}.cert mellon.cert"
     - "https_{{ app_fqdn }}.key mellon.key"
     - "https_{{ app_fqdn }}.xml mellon_metadata.xml"
 
