@@ -35,7 +35,7 @@ Generate a self-signed SSL certificate if you don't have one from a provider
 ```
 nano app.cnf
 ```
-Add following directives
+Add following directives and replace 'FQDN' by your application FQDN
 ```
 [req]
 default_bits       = 2048
@@ -43,7 +43,7 @@ default_keyfile    = private.key
 distinguished_name = req_distinguished_name
 prompt             = no
 [req_distinguished_name]
-commonName         = 'fqdn'
+commonName         = FQDN
 ```
 Execute the following command	
 ```
