@@ -28,6 +28,8 @@ cd ..
 mv roles/apache-saml-sp/playbook.yaml .
 ```
 
+## Installation
+
 Generate a self-signed SSL certificate if you don't have one from a provider
 
 ```
@@ -48,13 +50,15 @@ Execute the following command
 sudo openssl req -utf8 -batch -config "app.cnf" -new -x509 -days 3652 -nodes -out "app.crt" -keyout "app.key"
 ```
 
-Run playbook
+## Run playbook
 
 ```
 ansible-playbook playbook.yaml
 ```
 
-Send SP metadata to your Identity Provider to register as a SP
+## Service provider metadata
+
+Send SP metadata to your Identity Provider to register as a Service Provider
 ```
 /etc/apache2/mellon/mellon_metadata.xml
 ```
