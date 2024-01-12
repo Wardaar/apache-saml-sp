@@ -66,9 +66,9 @@ Send SP metadata to your Identity Provider to register as a Service Provider
 ## App location
 
 By default default a "protected" folder is created, where you can put your application
-'''
+```
 /var/www/html/protected
-'''
+```
 You can access your app at https://fqdn/protected
 
 You can change the app location by using another folder in /var/www/html and updating the location in /etc/apache2/sites-available/app.conf
