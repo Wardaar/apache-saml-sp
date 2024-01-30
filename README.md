@@ -79,8 +79,8 @@ You can change the app location by using another folder in /var/www/html and upd
 nano playbook.yaml
 ```
 
-* `app_fqdn`, the fqdn of your application, defaults to app.changeme.com.
-* `idp_metadata`, path to the extracted metadata of your Identity Provider.
+* `app_fqdn`, the fqdn of your application.
+* `idp_metadata`, path to the extracted metadata of your Identity Provider (http://auth.example.com/saml/metadata).
 * `cert_path`, path to the application SSL certificate.
 * `key_path`, path to the application SSL key.
 
