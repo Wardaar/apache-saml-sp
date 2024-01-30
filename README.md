@@ -80,7 +80,7 @@ nano playbook.yaml
 ```
 
 * `app_fqdn`, the fqdn of your application.
-* `idp_metadata`, path to the extracted metadata of your Identity Provider (http://auth.example.com/saml/metadata).
+* `idp_metadata`, path to the extracted metadata of your Identity Provider (extract from http://auth.example.com/saml/metadata).
 * `cert_path`, path to the application SSL certificate.
 * `key_path`, path to the application SSL key.
 
